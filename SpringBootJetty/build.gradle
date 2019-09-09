@@ -1,0 +1,24 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.8.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'java'
+}
+
+group = 'com.okta.springbootjetty'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'com.okta.spring:okta-spring-boot-starter:1.2.1'
+	implementation 'org.springframework.boot:spring-boot-starter-jetty'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+configurations {
+	compile.exclude module: "spring-boot-starter-tomcat"
+}
