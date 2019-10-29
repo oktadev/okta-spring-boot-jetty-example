@@ -1,24 +1,30 @@
 plugins {
-	id 'org.springframework.boot' version '2.1.8.RELEASE'
-	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
-	id 'java'
+    id 'org.springframework.boot' version '2.2.0.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
 }
 
 group = 'com.okta.springbootjetty'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+sourceCompatibility = '11'
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'com.okta.spring:okta-spring-boot-starter:1.2.1'
-	implementation 'org.springframework.boot:spring-boot-starter-jetty'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-jetty'
+    implementation 'com.okta.spring:okta-spring-boot-starter:1.3.0'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
+test {
+    useJUnitPlatform()
 }
 
 configurations {
-	compile.exclude module: "spring-boot-starter-tomcat"
+    compile.exclude module: "spring-boot-starter-tomcat"
 }
