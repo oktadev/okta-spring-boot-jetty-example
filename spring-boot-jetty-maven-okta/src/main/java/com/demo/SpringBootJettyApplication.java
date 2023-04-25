@@ -18,9 +18,9 @@ public class SpringBootJettyApplication {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .anyRequest().permitAll()
-                .and()
-                .oauth2ResourceServer().jwt();
+            .anyRequest().permitAll()
+            .and()
+            .oauth2ResourceServer().jwt();
         return http.build();
     }
 
