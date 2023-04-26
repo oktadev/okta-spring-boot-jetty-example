@@ -43,7 +43,7 @@ To run the Okta example, you will need to create an OIDC Application in Okta.
 Go to **Security** > **API** and copy the `Issuer URI` from the **default** Authorization Server into `spring-boot-jetty-maven-okta/src/main/resources/application.properties`:
 
 ```properties
-okta.oauth2.issuer=https://{yourOktaUri}/oauth2/default
+okta.oauth2.issuer=https://<your-okta-domain>/oauth2/default
 ```
 
 Then, modify `spring-boot-jetty-maven-okta/pom.xml` to uncomment the Okta Spring Boot starter. 
@@ -68,8 +68,8 @@ auth0 tenants list
 Take the resulting domain and replace the placeholder in the `issuer` property in the `spring-boot-jetty-maven-auth0/src/main/resources/application.properties` file. **Don't remove the trailing slash!**
 
 ```properties
-okta.oauth2.issuer=https://dev-0rb77jrp.us.auth0.com/
-okta.oauth2.audience=https://dev-0rb77jrp.us.auth0.com/api/v2/
+okta.oauth2.issuer=https://<your-auth0-domain>/
+okta.oauth2.audience=https://<your-auth0-domain>/api/v2/
 ```
 
 Then, modify `spring-boot-jetty-maven-auth0/pom.xml` to uncomment the Okta Spring Boot starter.
